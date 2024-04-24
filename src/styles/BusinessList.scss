@@ -1,0 +1,9 @@
+.business_list_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; // Centre les éléments horizontalement
+    align-items: center;     // Centre les éléments verticalement
+    max-width: 1600px;       // Largeur maximale du conteneur
+    margin: 0 auto;          // Centre le conteneur dans la fenêtre du navigateur
+    gap: 30px;               // Espacement entre les éléments Business
+  }
