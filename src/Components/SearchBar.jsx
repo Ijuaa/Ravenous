@@ -30,6 +30,7 @@ function SearchBar() {
         event.preventDefault();
     };
 
+
     return (
         <div className="search-bar">
             <ul className="sort-options">
