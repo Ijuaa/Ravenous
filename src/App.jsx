@@ -1,27 +1,21 @@
+import { useState } from "react";
 import SearchBar from "./Components/SearchBar";
 import BusinessList from "./Components/BusinessList";
+import searchYelp from "./utilities/yelpApi";
+
 import "./App.css";
 
 function App() {
-  const businessData = {
-    imageSrc:
-      "https://content.codecademy.com/programs/react/ravenous/pizza.jpg",
-    name: "MarginOtto Pizzeria",
-    address: "1010 Paddington Way",
-    city: "Flavortown",
-    state: "NY",
-    zipCode: "10101",
-    category: "Italian",
-    rating: 4.5,
-    reviewCount: 90,
-  };
+  const [businesses, setBusinesses] = useState([]);
 
-   const businesses = [businessData, businessData, businessData, businessData, businessData, businessData];
-
+  const search = (term, location, sortBy) => {
+    searchYelp(term, location, sortBy)
+      .then((businesses) => setBusinesses(businesses))
+  }
   return (
     <>
       <h1>Ravenous</h1>
-      <SearchBar />
+      <SearchBar onSearch={search}/>
       <BusinessList businesses={businesses}/>
     </>
   );
